@@ -21,7 +21,7 @@ if len(sys.argv) != 2:
 # Read the amount as a command-line argument, stripping the dollar sign if it was passed
 try:
     amount = Decimal(sys.argv[1].strip('$'))
-except ValueError:
+except:
     print("Amount provided must be numeric!\nProvided '" + sys.argv[1] + "'", file=sys.stderr)
     sys.exit(2)
 
