@@ -2,6 +2,8 @@
 Calculates the minimum amount of change necessary for a monetary amount.
 
 Expects a starting input of USD$. Rounds down on fractional pennies.
+
+If you're going to pass a dollar sign as part of the input, please be sure to properly escape it.
 """
 from __future__ import print_function
 from decimal import Decimal
