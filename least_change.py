@@ -23,10 +23,15 @@ except ValueError:
     print("Amount provided must be numeric!\nProvided '" + sys.argv[1] + "'", file=sys.stderr)
     sys.exit(2)
 
+# Sanity check
+if amount <= 0.01:
+    print("You're broke, son.")
+    sys.exit(0)
+
 # Calculate the least amount of change
 for den in denominations:
-    num = Decimal(amount // Decimal(den))
-    amount -= num * Decimal(den)
+    num = Decimal(amount // Decimal(den)) # floordiv operator to determine the amount of this denomination
+    amount -= num * Decimal(den) # subtract the amount of change just made from the overall amount
     if num:
         print(str(num) + " " + names[den] if den in names else str(num) + " $" + str(den) + " dollar bills")
 
